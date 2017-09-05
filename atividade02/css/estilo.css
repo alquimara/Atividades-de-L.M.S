@@ -122,6 +122,8 @@ article .sessaoArtigo{
     text-align: justify;
 }
 
-svg{
-    text-align: center;
- }
+#Desenho{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
