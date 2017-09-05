@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Progster</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+
+<header id="cabecalhoPagina">
+    <h1> Progster </h1>
+    <h2> Ensinando Lógica de Programação para crianças </h2>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Artigos</a>
+            <div class="dropdown-content">
+                <a href="art01.html">Artigo 1</a>
+                <a href="art02.html">Artigo 2</a>
+                <a href="mulherPalito.html">Mulher Palito</a>
+                <a href="videos.html">Vídeos</a>
+
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Link Relacionados</a>
+            <div class="dropdown-content">
+                <a href="https://olhardigital.com.br/noticia/escolas-defendem-ensino-de-programacao-a-criancas-e-adolescentes/35075">Olhar Digital</a>
+                <a href="http://porvir.org/ensinar-programar-e-ensinar-pensar/">Porvir</a>
+                <a href="http://noticias.universia.com.br/destaque/noticia/2015/03/24/1122086/3-aplicativos-ensinar-programaco-criancas.html">Universia</a>
+            </div>
+
+        </li>
+        <li><a href="contato.html">Contato</a></li>
+    </ul>
+</nav>
+
+
+
+<div id="conteudo">
+
+<article class="artigo">
+    <section class="sessaoArtigo">
+        <header>
+        <h1>PROGSTER: O ENSINO DE LÓGICA DE PROGRAMAÇÃO PARA
+            CRIANÇAS, ATRAVÉS DA LUDICIDADE DE UM TABULEIRO
+            ELETRÔNICO QUE INTERAGE COM UM TABLET
+        </h1>
+        <h4>Introdução</h4>
+        </header>
+        <p>Este presente artigo tem como propósito descrever o desenvolvimento do projeto Progster. O objetivo deste jogo é o ensino de lógica de programação para crianças entre sete e nove anos, de forma lúdica, por meio das teorias de ensino de Jean Piaget e de Seymour Papert. </p>
+        <p>Aprender lógica de programação permite o desenvolvimento do raciocínio, gerando novas maneiras de pensar e de ver as coisas ao nosso redor. O ser humano é um ser lógico por natureza, mas não é adquirida de uma hora pra outra, e sim, de um conjunto de vivências e experiências anteriores. A lógica é usada em operações simples como a uma rotina diária: levantar da cama, calçar o chinelo, ir ao banheiro, escovar os dentes, etc. A lógica de programação para crianças deve servir como instrumento que ajude no raciocínio lógico e interpretações e desenvolturas de problemas simples e complexos.  </p>
+        <p>
+            Apesar de sua relevância, o ensino de programação não é aproveitado na educação básica brasileira, fez-se necessária a atenção para a necessidade de iniciações de lógica de programação à crianças e adolescentes para que sejam estimulados a se interessarem pela área da tecnologia profissional.
+            Segundo uma pesquisa realizada pela consultoria IDC, atualmente há 39,9 mil vagas sobrando no mercado nacional de tecnologia. Até 2015, a perspectiva é de que esse número triplique em função do déficit de profissionais qualificados. (Almeida, 2013)
+        </p>
+        <p>
+            Progster trata-se de um jogo composto de uma aplicação para tablet e de um tabuleiro eletrônico. O tabuleiro é controlado por arduino, via bluetooth, por meio do encaixe de peças de ações, que enviam comandos para que o hamster Pluft, execute-as na tela do tablet e vença os desafios. O tabuleiro é formado por peças que podem ser encaixadas em diferentes sequências para suprir a necessidade de cada fase do jogo.
+            Também é no tabuleiro que se encontram as opções de navegar pelo menu.
+
+        </p>
+
+    </section>
+    <section class="sessaoArtigo">
+        <h4>Metodologia</h4>
+        <p>Este projeto surgiu a partir da divulgação do concurso de IHC do XVI Simpósio Brasileiro Sobre Fatores Humanos em Sistemas Computacionais, cujo tema é “Aplicativos infantis: educação e diversão – Como a tecnologia pode promover a aprendizagem de forma divertida?”. A partir da ideia do evento, foi proposta a ideia de desenvolver uma aplicação que ensinasse lógica de programação para crianças.  </p>
+        <p>Estabeleceu-se, então, uma faixa etária a se trabalhar. Era preferível que as crianças já fossem alfabetizadas e tivessem senso lógico, ou seja, de 7 à 9 anos. De acordo com pesquisas realizadas sobre os estudos de Jean Piaget, é nessa faixa etária, definida por ele como Estágio operatório concreto, que começa a surgir o processo de pensamento lógico, em que a criança é capaz de ordenar e agrupar coisas. O pensamento da criança é de natureza concreta, pois as crianças só pensam corretamente se os exemplos ou materiais que elas utilizam para apoiar os pensamentos existam mesmo. Nesse estágio a criança desenvolve seu senso moral.
+        </p>
+
+        <p>
+            Em seguida, foi realizada uma pesquisa a respeito dos teóricos que discursam sobre o ensino de lógica de programação, destacando-se Seymour Papert (PAPERT, 1985), e sobre metodologias de ensino, escolhendo-se Jean Piaget (PIAGET, 1972).
+        </p>
+
+        <p>
+            Por meio de pesquisas sobre o que já existia no mercado de produtos e de websites, coletou-se uma amostra de produtos similares, destacando-se seus pontos fortes e fracos. Setenta e cinco porcento dos produtos pesquisados consiste no mecanismo de clicar e de arrastar, ou na programação de códigos. Dos que se destacaram, a novidade era o manuseio de peças físicas, que se encaixavam e que enviam comandos para um tablet ou para um objeto físico, que realizava ações determinadas pelas peças. Com base nisso, percebeu-se a viabilidade de unir a interface física com a digital, para tornar mais atrativo e lúdico a transmissão de conhecimento.
+        </p>
+
+        <p>
+            Com o objetivo de mensurar, de maneira geral, a aptidão, satisfatória ou não, de ordenar comandos passo a passo, a quantidade de crianças que tinham acesso à determinadas tecnologias e seus interesses em relação à aprendizado, foi feita uma pesquisa de campo. Foi desenvolvido, então, um grupo focal com crianças de algumas escolas da cidade de Quixadá, que atendiam o perfil selecionado de idade. Neste experimento, a criança era orientada a descrever o trajeto de um boneco sobre um percurso montado com Lego, partindo do início, passando pelos obstáculos e chegando ao fim. Havia diversas possibilidades de ações, as quais serviram de base para designar parte do conteúdo de condição/seleção.
+        </p>
+
+        <p>
+            Partindo da observação das crianças, das repostas obtidas em nossas entrevistas e dos resultados obtidos através do experimento e dos estudos bibliográficos foram selecionados conteúdos a serem ensinados: sequência lógica, seleção/condição, repetição e função.
+        </p>
+
+        <p>
+            Desenvolveu-se, então, o protótipo de um tabuleiro eletrônico, estabelecendo suas funcionalidades, bem como as peças de ações, e dividindo-o de acordo com os conteúdos estudados. Posteriormente, as telas foram desenvolvidas, respeitando a capacidade de encaixes do tabuleiro, juntamente com o projeto de interface, projeto de informação e o projeto de interação.
+        </p>
+    </section>
+</article>
+
+
+</div>
+
+
+<footer id="rodape">
+    <p>Todos os direitos reservados</p>
+    <p>Contact information: <a href="mailto:someone@example.com">
+        someone@example.com</a>.</p>
+</footer>
+</body>
+</html>
