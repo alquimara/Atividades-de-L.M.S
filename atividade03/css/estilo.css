@@ -1,7 +1,10 @@
 body{
 
-    background-color: #fff3bf;
+    background-image: url("../Imagens/gradient_bg.png");
     margin: auto;
+    background-repeat:repeat-x;
+    background-position: Right top;
+    background-attachment: fixed;
 }
 
 #cabecalhoPagina{
@@ -10,6 +13,7 @@ body{
     width: 100%;
     height: 100%;
     margin-top: -25px;
+
 }
 #cabecalhoPagina h1,#cabecalhoPagina h2{
     color: black;
@@ -23,7 +27,7 @@ body{
 
 .sessao{
     background-color: #f1ebd7;
-    border: solid 1px;
+    border-style: dotted solid dotted solid;
     padding-left: 9px;
     padding-right: 9px;
     text-align: justify;
@@ -111,19 +115,54 @@ li.dropdown {
 /* Paginas de artigo */
 .artigo{
     background-color: #f1ebd7;
-    border: solid 1px;
     margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #24158c;
+    font-family: Arial,Georgia,Calibri;
+    font-size: 16px;
+    border:4px dotted #333333;
+
 
 }
+.mulherPalito{
+    background-color: #f1ebd7;
+    border-style:dashed;
+    border-color: darkblue;
+    margin-bottom:4cm;
+    padding: 2cm;
+    border-width:4px;
+}
+
+.video{
+     background-color: #f1ebd7;
+     border-style:solid;
+     border-color: brown;
+     border-width: 4px;
+     margin: 1ex;
+     padding-bottom:2%;
+     text-align: center;
+     color: #923c1a;
+     font-family: "Times New Roman,",Arial, Georgia;
+     font-size: 30px;
+
+
+ }
+
+
 
 article .sessaoArtigo{
     padding-left: 9px;
     padding-right: 9px;
     text-align: justify;
+
+
 }
 
 #Desenho{
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+
+
 }
