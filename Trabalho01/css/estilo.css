@@ -1,0 +1,232 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.cabecalho{
+    width: 100%;
+    height: 50px;
+}
+
+/* CENTRO*/
+body{
+    background-color: rgba(219, 239, 241, 0.8)
+
+
+}
+
+.coluna-centro{
+    height: 600px;
+    width: 60%;
+    float:left;
+    background-color: rgba(219, 239, 241, 0.8);
+    text-align: center;
+
+
+}
+
+.coluna-centro .imagem{
+    width: 200px;
+    height: 200px;
+    line-height: 100px;
+    text-align: center;
+    animation: passar 20s infinite;
+    position: relative;
+    animation-name: passar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    padding: 70px;
+}
+
+
+/* ANIMAÇÃO*/
+@keyframes passar{
+    0%   {}
+    25%  { transform: translate(1px,1px) rotate(30deg)}
+    50%  {transform: translate( 100px, 100px)rotate(360deg)}
+    75%  {transform: translate( 200px, 200px)rotate(180deg)}
+    100% {}
+
+}
+
+
+/* MENU  VERTICAL ESQUERDO*/
+.colunaEsquerda {
+    height: 300px;
+    width: 20%;
+    float: right;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(#aad9e4, whitesmoke);
+    overflow: scroll;
+}
+
+
+
+.colunaEsquerda ul{
+    list-style-type: none;
+    margin-top: 20px;
+
+
+
+}
+.colunaEsquerda ul li{
+    display: block;
+    height: 50px;
+    width: 100%;
+
+
+
+}
+.colunaEsquerda ul li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px 10px;
+    transition: background-color 1s;
+
+}
+.colunaEsquerda ul li a:hover{
+    background-color: #09709a;
+    color: white;
+
+
+}
+
+
+
+
+/* MENU  PRINCIPAL*/
+.menu ul{
+    width: 100%;
+    height:50px;
+    background-color: #5acce4;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+}
+
+.menu ul li{
+    display: inline-block;
+}
+
+
+.menu ul li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 13px 25px;
+    transition: background-color 1s;
+    font-size: 20px;
+    border-radius: 10px 10px;
+}
+
+.menu ul li a:hover{
+    background-color: #09709a;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    visibility:hidden;
+    position: absolute;
+    background-color:  #5acce4;
+    width: 100%;
+    color: white;
+    max-height: 0px;
+    transition: max-height 1s ease-in;
+    overflow: hidden;
+    border-radius: 10px 10px;
+    z-index: 99;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+    visibility: visible;
+    max-height: 150px;
+    transition: max-height 1s;
+}
+
+
+/* MENU VERTIVAL DIREITA */
+
+.colunaDireita{
+    height: 600px;
+    width: 20%;
+    float: left;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+background: linear-gradient( #aad9e4,whitesmoke)}
+
+
+.colunaDireita ul{
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.colunaDireita ul li{
+    display: block;
+    height: 50px;
+    width: 100%;
+
+}
+
+.colunaDireita ul li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px 10px;
+    transition: background-color 1s;
+}
+.colunaDireita ul li a:hover{
+    background-color: #09709a;
+    color: white;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .colunaDireita{
+        background-color: #aad9e4;
+        margin-top: 0;
+        position: static;
+        border-radius:0;
+        width: 100%;
+        padding: 0;
+        height: 170px;
+    }
+    .colunaDireita  ul li {
+        margin:10px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .colunaEsquerda{
+
+
+    }
+
+    .conteudo{
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+
+
+
+
+/* RODAPE */
+
+.rodape{
+    width: 100%;
+    height: 70px;
+    background-color:#aad9e4;
+    float: left;
+    text-align: center;
+
+    }
+
+

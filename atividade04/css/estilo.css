@@ -128,3 +128,22 @@ main{
     color: black;
     padding: 0px;
 }
+
+dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: blanchedalmond;
+    width:160px;
+
+
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+
+}
