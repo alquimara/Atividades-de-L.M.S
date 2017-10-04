@@ -186,9 +186,15 @@ background: linear-gradient( #aad9e4,whitesmoke)}
 }
 
 @media only screen and (max-width: 600px) {
+    .menu{
+        position: relative;
+        height: auto;
+
+
+    }
 
     .colunaDireita{
-        background-color: #aad9e4;
+        background-color:  #aad9e4;
         margin-top: 0;
         position: static;
         border-radius:0;
@@ -196,13 +202,14 @@ background: linear-gradient( #aad9e4,whitesmoke)}
         padding: 0;
         height: 170px;
     }
-    .colunaDireita  ul li {
-        margin:10px;
-        padding: 10px;
+    .colunaDireita {
         position: relative;
+        height: auto;
     }
 
     .colunaEsquerda{
+        position: relative;
+        width: 100%;
 
 
     }
@@ -212,6 +219,11 @@ background: linear-gradient( #aad9e4,whitesmoke)}
         margin-left: 50px;
         margin-right: 50px;
     }
+    .menu ul li{
+        display: block;
+        float: left;
+    }
+
 }
 
 
