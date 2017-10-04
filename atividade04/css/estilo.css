@@ -61,36 +61,57 @@ main{
 
 
 /* Menu Horizontal */
-.menuHorizontal ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #4CAF50;
-    position: fixed;
-    top: 80px;
+.menuHorizontal ul{
     width: 100%;
+    height:50px;
+    background-color:#4CAF50 ;
 }
 
-.menuHorizontal li {
-    float: left;
+.menuHorizontal ul li{
+    display: inline-block;
 }
 
-.menuHorizontal li a {
+
+.menuHorizontal ul li a {
     display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 13px 25px;
+    transition: background-color 1s;
+    font-size: 16px;
 }
 
-.menuHorizontal li a:hover:not(.active) {
-    background-color: #111;
+.menuHorizontal ul li a:hover{
+    background-color: #4CAF50;
+    color: white;
 }
 
-.menuHorizontal .active {
-    background-color: #333333;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+
+.dropdown-content {
+    visibility:hidden;
+    position: absolute;
+    background-color: #e0e0e0;
+    width: 100%;
+    color: white;
+    max-height: 0px;
+    transition: max-height 1s ease-in;
+    overflow: hidden;
+    border-radius: 2px;
+    z-index: 99;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+    visibility: visible;
+    max-height: 200px;
+    transition: max-height 1s;
+}
+
 
 
 /* Menu Vertical */
@@ -113,37 +134,14 @@ main{
     padding: 8px 0 8px 16px;
     text-decoration: none;
 }
-
-.menuVertical li a.active {
-    background-color: black;
+.menuVertical li a:hover{
+    background-color: #c2c8cb;
     color: white;
 }
 
-.menuVertical li a:hover:not(.active) {
-    background-color: #555555;
-    color: white;
-}
 
 .menuVertical ul li h2{
     color: black;
     padding: 0px;
 }
 
-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: blanchedalmond;
-    width:160px;
-
-
-}
-
-.dropdown:hover .dropdown-content{
-    display: block;
-
-}
