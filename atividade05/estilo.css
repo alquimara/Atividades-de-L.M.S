@@ -1,0 +1,95 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+header.cabecalho{
+    width: 100%;
+    background-color: #c9c9c9;
+}
+
+header.cabecalho h1{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+/* Botao MENU*/
+
+header.cabecalho div.botaoMenu{
+    padding: 2px;
+    position: absolute;
+    top: 0px;
+    display: none;
+}
+
+header.cabecalho div.botaoMenu .botao{
+    cursor: pointer;
+    padding: 5px 10px;
+    user-select: none;
+    font-size: 20px;
+}
+
+
+
+
+/* MENU LATERAL */
+
+nav.menu-lateral{
+    height: 400px;
+    width: 200px;
+    background-color: #f1ebd7;
+}
+
+nav.menu-lateral ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+nav.menu-lateral ul li{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+nav.menu-lateral ul li a{
+    display: block;
+    padding: 10px 60px;
+    margin: 2px;
+    text-decoration: none;
+    background-color: #c9c9c9;
+    color: black;
+
+
+    /* Alterar */
+    display: block;
+    visibility: visible;
+    max-height: 200px;
+    transition: max-height 1s;
+
+
+}
+
+nav.menu-lateral ul li a:hover{
+    background-color: black;
+    color: white;
+}
+
+
+@media only screen and (max-width: 480px) {
+    header.cabecalho div.botaoMenu{
+        display: block;
+    }
+    nav.menu-lateral{
+        visibility:hidden;
+        position: absolute;
+        color: white;
+        max-width: 0px;
+        transition: max-width 1s ease-in;
+        overflow: hidden;
+        border-radius: 2px;
+        z-index: 99;
+    }
+
+}
