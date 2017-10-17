@@ -54,14 +54,12 @@ body {
     margin-left: 250px;
     transition: margin-left .5s;
     padding: 16px;
-
 }
 
 /* Botao MENU*/
 
 .cabecalho div.botaoMenu{
     padding: 2px;
-    position: absolute;
     top: 0px;
     display: none;
 }
