@@ -1,30 +1,72 @@
 *{
     margin: 0px;
     padding: 0px;
+
 }
 
-
-
-header.cabecalho{
-    width: 100%;
-    background-color: #c9c9c9;
+body {
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(#bcdce4, whitesmoke)
 }
 
-header.cabecalho h1{
+.sidenav {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #acdbe4;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    background-color: #57a7d9;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.sidenav a:hover {
+    background-color:black;
+    color: #acdbe4;
+}
+
+.cabecalho{
+    margin-left: 250px;
+    background-color: #acdbe4;
+    transition: margin-left .5s;
+}
+
+.cabecalho h1{
     padding: 5px 10px;
     text-align: center;
 }
 
+
+.main {
+    margin-left: 250px;
+    transition: margin-left .5s;
+    padding: 16px;
+
+}
+
 /* Botao MENU*/
 
-header.cabecalho div.botaoMenu{
+.cabecalho div.botaoMenu{
     padding: 2px;
     position: absolute;
     top: 0px;
     display: none;
 }
 
-header.cabecalho div.botaoMenu .botao{
+.cabecalho div.botaoMenu .botao{
     cursor: pointer;
     padding: 5px 10px;
     user-select: none;
@@ -32,64 +74,74 @@ header.cabecalho div.botaoMenu .botao{
 }
 
 
-
-
-/* MENU LATERAL */
-
-nav.menu-lateral{
-    height: 400px;
-    width: 200px;
-    background-color: #f1ebd7;
+/* ACORDION */
+.panel-group{
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
-nav.menu-lateral ul{
-    list-style-type: none;
-    text-align: center;
-    padding: 50px 0px;
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100% - 68px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    outline: none;
+    transition: 0.4s;
+    margin-bottom:10px;
+    background-color:#57a7d9;
 }
 
-nav.menu-lateral ul li{
-    display: inline-block;
-    margin-top: 10px;
-}
-
-nav.menu-lateral ul li a{
-    display: block;
-    padding: 10px 60px;
-    margin: 2px;
-    text-decoration: none;
-    background-color: #c9c9c9;
-    color: black;
-
-
-    /* Alterar */
-    display: block;
-    visibility: visible;
-    max-height: 200px;
-    transition: max-height 1s;
-
-
-}
-
-nav.menu-lateral ul li a:hover{
+.accordion.active, .accordion:hover {
     background-color: black;
-    color: white;
+    color:#acdbe4 ;
 }
 
+.accordion:after {
+    font-size: 13px;
+    color: black;
+    float: right;
+    margin-left: 5px;
+}
+
+.panel {
+    width: 100% - 68px;
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+
+}
+.panel.show {
+    opacity: 1;
+    max-height: 500px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+/* RESPOSIVE */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
 
 @media only screen and (max-width: 480px) {
-    header.cabecalho div.botaoMenu{
+    .cabecalho div.botaoMenu {
         display: block;
     }
-    nav.menu-lateral{
-        visibility:hidden;
-        position: absolute;
-        color: white;
-        max-width: 0px;
-        transition: max-width 1s ease-in;
-        overflow: hidden;
-        border-radius: 2px;
-        z-index: 99;
+    .sidenav{
+        width: 0px;
     }
-
+    .main, .cabecalho{
+        margin-left: 0px;
+    }
 }
+
+
+
