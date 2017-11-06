@@ -1,0 +1,149 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.tudo{
+    background-color: #eeeeee;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cabecalho-principal {
+    width: 100vw;
+    height: 100px;
+    background-color: #18cead;
+    position: absolute;
+}
+
+.cabecalho-principal .titulo{
+    float: left;
+    font-size: 40px;
+    padding: 10px 20px;
+    margin-left: 1vw;
+    margin-top: 10px;
+    text-shadow: 1px 1px 1px #555555;
+    color: white;
+}
+
+.cabecalho-principal button{
+    float: right;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-right: 5vw;
+    margin-top: 32px;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.9);
+    transition: 500ms;
+}
+
+.cabecalho-principal button:hover{
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid rgba(255,255,255,0.9);
+    color: white;
+}
+
+
+
+.container{
+    width: 70vw;
+    height: 80vh;
+    position: absolute;
+    margin: 10vh 15vw;
+    background-color: #dddddd;
+}
+
+.coluna1{
+    width: calc(30% - 2px);
+    height: calc(100% - 2px);
+    background-color: #c685a3;
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.coluna2{
+    width: calc(70% - 2px);
+    height: calc(100% - 2px);
+    background-color: #93aec6;
+    float: right;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.cabecalho{
+    width: 100%;
+    height: 70px;
+    background-color: #c9c9c9;
+}
+
+
+
+.cabecalho p{
+    font-size: 24px;
+    text-align: center;
+    font-family: Georgia;
+    padding: 23px 0px;
+}
+
+.coluna1 .contatos{
+    width: calc(100% - 4px);
+    height: calc(100% - 74px);
+    background-color: #397888;
+    padding: 2px;
+    overflow-y: auto;
+}
+
+.contatos .usuario{
+    width: 100%;
+    padding: 15px 0px;
+    text-align: center;
+    display: block;
+    background-color: #f1ebd7;
+    margin-bottom: 2px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.contatos .usuario:hover{
+    background-color: #d9bdbe;
+}
+
+.coluna2 .mensagem-usuario{
+    width: 100%;
+    height:100%;
+    display: none;
+}
+.coluna2 .mensagem-usuario.active{
+    display: block;
+}
+
+
+.coluna2 .mensagens{
+    width: calc(100% - 10px);
+    height: calc(100% - 80px);
+    background-color: bisque;
+    padding: 5px;
+}
+
+.cabecalho.active, .coluna2 .mensagens.active{
+    display: block;
+}
+
+.mensagens .msg{
+    width:50%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.mensagens .msg-recebida{
+    float: left;
+    background-color: whitesmoke;
+}
+
+.mensagens .msg-enviada{
+    float: right;
+    background-color: lawngreen;
+}
