@@ -54,11 +54,18 @@ let listaContatos = [
 
 let contatos = document.querySelector(".contatos");
 function mostraUsuario(nome) {
+    let contato = document.createElement("div");
+    let imagem = document.createElement("img");
     let spanUser = document.createElement("span");
+
+    contato.classList.add("contato");
     spanUser.classList.add("usuario");
     let texto = document.createTextNode(nome);
+    imagem.setAttribute("src","icone.png");
     spanUser.appendChild(texto);
-    contatos.appendChild(spanUser);
+    contato.appendChild(imagem);
+    contato.appendChild(spanUser);
+    contatos.appendChild(contato);
 }
 
 function mostrarUsuarioList() {
@@ -73,6 +80,8 @@ let coluna2 = document.querySelector(".coluna2");
 function mostraMensagens(nome, listaMensagens){
     let mensagemUsuario = document.createElement("div");
     let cabecalho = document.createElement("div");
+    let img = document.createElement("img");
+    img.setAttribute("src", "icone.png");
     let paragrafo = document.createElement("p");
     let textoNome = document.createTextNode(nome);
     let mensagens = document.createElement("div");
@@ -80,6 +89,7 @@ function mostraMensagens(nome, listaMensagens){
     cabecalho.classList.add("cabecalho");
     mensagens.classList.add("mensagens");
     paragrafo.appendChild(textoNome);
+    cabecalho.appendChild(img);
     cabecalho.appendChild(paragrafo);
 
     for(let i = 0; i < listaMensagens.length; i++){
@@ -118,7 +128,6 @@ function aparecerMensagensContato() {
             mensagemUsuario[i].classList.add("active");
         });
     }
-    console.log(meusContatos);
 }
 
 aparecerMensagensContato();

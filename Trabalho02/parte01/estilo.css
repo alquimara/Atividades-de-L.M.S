@@ -75,7 +75,12 @@
     height: 70px;
     background-color: #c9c9c9;
 }
-
+.cabecalho img{
+    width: 30px;
+    height: 30px;
+    float: left;
+    padding: 20px;
+}
 
 
 .cabecalho p{
@@ -93,9 +98,9 @@
     overflow-y: auto;
 }
 
-.contatos .usuario{
+.contatos .contato{
     width: 100%;
-    padding: 15px 0px;
+    height: 50px;
     text-align: center;
     display: block;
     background-color: #f1ebd7;
@@ -104,12 +109,25 @@
     user-select: none;
 }
 
-.contatos .usuario:hover{
+.contato:hover{
     background-color: #d9bdbe;
 }
 
+.contato .usuario{
+    padding: 15px 0px;
+    text-align: center;
+    display: block;
+}
+
+.contato img{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    float: left;
+}
+
 .coluna2 .mensagem-usuario{
-    width: 100%;
+width: 100%;
     height:100%;
     display: none;
 }
@@ -123,6 +141,7 @@
     height: calc(100% - 80px);
     background-color: bisque;
     padding: 5px;
+
 }
 
 .cabecalho.active, .coluna2 .mensagens.active{
