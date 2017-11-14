@@ -141,7 +141,7 @@ width: 100%;
     height: calc(100% - 80px);
     background-color: bisque;
     padding: 5px;
-
+    overflow-y: auto;
 }
 
 .cabecalho.active, .coluna2 .mensagens.active{
