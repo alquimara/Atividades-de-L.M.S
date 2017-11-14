@@ -141,6 +141,7 @@
     height: calc(100% - 140px);
     background-color: bisque;
     padding: 5px;
+    overflow-y: auto;
 }
 
 .grupo-mensagens .enviar-mensagem{
@@ -150,9 +151,14 @@
     background-color: white;
 }
 
-.grupo-mensagens .enviar-mensagem input{
-    width: calc(100% - 25px);
+.grupo-mensagens .enviar-mensagem .campo-mensagem{
+    width: calc(100% - 125px);
     padding: 10px;
+}
+.grupo-mensagens .enviar-mensagem .botao-enviar{
+    padding: 10px;
+    background-color: #4caf50;
+    border: none;
 }
 
 .cabecalho.active, .grupo-mensagens .mensagens.active{

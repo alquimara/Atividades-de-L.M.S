@@ -1,11 +1,13 @@
-let meusUsuario = "alquimara";
+let meuUsuario = "alquimara";
+let grupoAtual = -1;
+let meusGrupos = [];
 
-function carregarMeusUsuario() {
-    let myUser = document.createTextNode(meusUsuario);
+function carregarMeuUsuario() {
+    let myUser = document.createTextNode(meuUsuario);
     let text = document.querySelector("#meuUsuario");
     text.appendChild(myUser);
 }
-carregarMeusUsuario();
+carregarMeuUsuario();
 
 
 
@@ -14,10 +16,11 @@ function pegarGrupo() {
     ajax.onreadystatechange = function () {
         if(ajax.readyState == 4 && ajax.status == 200){
             let listaGrupo = JSON.parse(ajax.responseText);
-            for(let i = 0; i < listaGrupo.length; i++){
+            meusGrupos = listaGrupo;
+            for (let i = 0; i < listaGrupo.length; i++) {
                 let nome = listaGrupo[i].groupName;
                 mostrarGrupo(nome);
-                pegarMensagensGrupo(listaGrupo[i].groupName,listaGrupo[i].groupID);
+                pegarMensagensGrupo(listaGrupo[i].groupName, listaGrupo[i].groupID);
             }
         }
     };
@@ -30,13 +33,30 @@ function pegarMensagensGrupo(groupName,groupID) {
     ajax.onreadystatechange = function () {
         if(ajax.readyState == 4 && ajax.status == 200){
             let listaMensagens = JSON.parse(ajax.responseText);
-            mostraMensagens(groupName,listaMensagens);
+            mostraMensagens(groupName, listaMensagens);
             aparecerMensagensGrupo();
+            enviarMensagem();
         }
     };
     ajax.open("GET", "http://rest.learncode.academy/api/alquimara/" + groupID, true);
     ajax.send();
 }
+
+function enviarMsgPost(usuario,messagem,groupID) {
+    let ajaxMsg = new XMLHttpRequest();
+    ajaxMsg.onreadystatechange = function () {
+        if(ajaxMsg.readyState == 4 && ajaxMsg.status == 200){
+
+        }
+    };
+    ajaxMsg.open("POST", "http://rest.learncode.academy/api/alquimara/" + groupID, true);
+    ajaxMsg.setRequestHeader("Content-Type","application/json");
+    let msg = {"userName":usuario , "message":messagem};
+    let body = JSON.stringify(msg);
+    ajaxMsg.send(body);
+
+}
+
 
 let todosGrupos = document.querySelector(".grupos");
 function mostrarGrupo(groupName) {
@@ -69,13 +89,21 @@ function mostraMensagens(groupName, listaMensagens){
 
     let enviarMsg = document.createElement("div");
     let enviarMsgInput = document.createElement("input");
+    let enviarMsgButton = document.createElement("button");
+    let textoBotao = document.createTextNode("Enviar");
 
     mensagensGrupo.classList.add("grupo-mensagens");
     cabecalho.classList.add("cabecalho");
     mensagens.classList.add("mensagens");
-
+    enviarMsgInput.classList.add("campo-mensagem");
+    enviarMsgButton.classList.add("botao-enviar");
     enviarMsg.classList.add("enviar-mensagem");
+
+    enviarMsgButton.type = "submit";
+
     enviarMsg.appendChild(enviarMsgInput);
+    enviarMsgButton.appendChild(textoBotao);
+    enviarMsg.appendChild(enviarMsgButton);
 
     paragrafo.appendChild(textoNome);
     cabecalho.appendChild(img);
@@ -94,7 +122,7 @@ function mostraMensagens(groupName, listaMensagens){
         span.appendChild(msgUsuario);
         span.appendChild(msgTexto);
         span.classList.add("msg");
-        if(listaMensagens[i].userName == meusUsuario){
+        if(listaMensagens[i].userName == meuUsuario){
             span.classList.add("msg-enviada");
         }else{
             span.classList.add("msg-recebida");
@@ -117,9 +145,21 @@ function aparecerMensagensGrupo() {
                 mensagemGrupo[j].classList.remove("active");
             }
             mensagemGrupo[i].classList.add("active");
+            grupoAtual = i;
         });
     }
 }
 
 
 pegarGrupo();
+
+function enviarMensagem() {
+    let listaCampoMsg = document.querySelectorAll(".campo-mensagem");
+    let listaBotaoEnviar = document.querySelectorAll(".botao-enviar");
+    for (let i = 0; i < listaBotaoEnviar.length; i++) {
+        listaBotaoEnviar[i].addEventListener("click", function () {
+            event.preventDefault();
+            enviarMsgPost(meuUsuario, listaCampoMsg[i].value, meusGrupos[grupoAtual].groupID);
+        });
+    }
+}

@@ -86,6 +86,8 @@ function mostraMensagens(nome, listaMensagens){
         let textoUsuario = document.createTextNode(listaMensagens[i].userName);
         let nomeUsuario = document.createElement("span");
         let spanTexto = document.createElement("span");
+        console.log(textoMsg);
+        console.log(nomeUsuario);
 
         nomeUsuario.classList.add("nome-usuario");
         spanTexto.classList.add("texto");
@@ -108,6 +110,8 @@ function mostraMensagens(nome, listaMensagens){
     cabecalho.appendChild(paragrafo);
     mensagemUsuario.appendChild(cabecalho);
     mensagemUsuario.appendChild(mensagens);
+
+
     coluna2.appendChild(mensagemUsuario);
 }
 
