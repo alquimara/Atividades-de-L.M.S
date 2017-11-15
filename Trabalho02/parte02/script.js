@@ -1,22 +1,18 @@
-let meuUsuario = "alquimara";
+let myUser = "alquimara";
 function myUsuario() {
     let cabecalho = document.querySelector("#meuUsuario");
-    let text = document.createTextNode(meuUsuario);
+    let text = document.createTextNode(myUser);
     cabecalho.appendChild(text);
 }
 myUsuario();
-
 
 function pegarGrupo() {
     let ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function () {
         if(ajax.readyState == 4){
             let listaGrupos = JSON.parse(ajax.responseText);
-
             for(let i = 0; i < listaGrupos.length; i++){
-                let nomeGrupo = listaGrupos[i].groupName;
-                mostrarGrupo(nomeGrupo);
-                pegarMensagens(nomeGrupo,listaGrupos[i].groupID);
+                mostrarGrupo(listaGrupos[i].groupName,listaGrupos[i].groupID);
             }
 
         }
@@ -28,13 +24,12 @@ function pegarGrupo() {
 
 
 
-function pegarMensagens(nomeGrupo,grupoID) {
+function pegarMensagens(groupName,grupoID) {
     let ajaxM = new XMLHttpRequest();
     ajaxM.onreadystatechange = function () {
         if(ajaxM.readyState == 4){
             let listaMensagem = JSON.parse(ajaxM.responseText);
-            mostraMensagens(nomeGrupo, listaMensagem);
-            aparecerMensagensContato();
+            activeMensagem(groupName, listaMensagem,myUser);
         }
     };
     ajaxM.open("GET", "http://rest.learncode.academy/api/alquimara/" + grupoID,true);
@@ -43,100 +38,97 @@ function pegarMensagens(nomeGrupo,grupoID) {
 
 
 
+function activeMensagem(groupName, listaMensagens, meuUsuario) {
+    let mensagemUsuario = document.querySelector(".mensagem-usuario");
+    mensagemUsuario.classList.add("active");
+    let cabecalho = document.querySelector(".cabecalho-mensagem");
 
-
-let grupos = document.querySelector(".grupos");
-function mostrarGrupo(nome) {
-    let grupo = document.createElement("div");
-    let imagem = document.createElement("img");
-    let spanGrupo = document.createElement("span");
-    let texto = document.createTextNode(nome);
-
-    grupo.classList.add("grupo");
-    spanGrupo.classList.add("usuario");
-
-    imagem.setAttribute("src","icone.png");
-
-    spanGrupo.appendChild(texto);
-    grupo.appendChild(imagem);
-    grupo.appendChild(spanGrupo);
-    grupos.appendChild(grupo);
-}
-
-
-
-let coluna2 = document.querySelector(".coluna2");
-function mostraMensagens(nome, listaMensagens){
-    let mensagemUsuario = document.createElement("div");
-    let cabecalho = document.createElement("div");
-    let img = document.createElement("img");
     let paragrafo = document.createElement("p");
-    let textoNome = document.createTextNode(nome);
-    let mensagens = document.createElement("div");
+    let nomeGrupo = document.createTextNode(groupName);
+    paragrafo.classList.add("paragrafo");
+    if(cabecalho.childElementCount > 1){
+        cabecalho.removeChild(cabecalho.lastChild);
+    }
+    paragrafo.appendChild(nomeGrupo);
+    cabecalho.appendChild(paragrafo);
 
-    mensagemUsuario.classList.add("mensagem-usuario");
-    cabecalho.classList.add("cabecalho");
-    mensagens.classList.add("mensagens");
-
-    img.setAttribute("src", "icone.png");
-
+    let campoMsg = document.querySelector(".mensagens");
+    if( campoMsg.childElementCount > 0){
+        for (let i = campoMsg.childElementCount; i > 0; i--){
+            campoMsg.removeChild(campoMsg.lastChild);
+        }
+    }
     for(let i = 0; i < listaMensagens.length; i++){
         let span = document.createElement("span");
-        let textoMsg = document.createTextNode(listaMensagens[i].message);
-        let textoUsuario = document.createTextNode(listaMensagens[i].userName);
-        let nomeUsuario = document.createElement("span");
-        let spanTexto = document.createElement("span");
-        console.log(textoMsg);
-        console.log(nomeUsuario);
-
-        nomeUsuario.classList.add("nome-usuario");
-        spanTexto.classList.add("texto");
+        let msgUsuario = document.createElement("span");
+        let msgTexto = document.createElement("span");
+        let nomeUsuario = document.createTextNode(listaMensagens[i].userName);
+        let conteudoMsg = document.createTextNode(listaMensagens[i].message);
+        msgUsuario.appendChild(nomeUsuario);
+        msgTexto.appendChild(conteudoMsg);
+        msgUsuario.classList.add("username");
+        msgTexto.classList.add("texto");
+        span.appendChild(msgUsuario);
+        span.appendChild(msgTexto);
         span.classList.add("msg");
-        if(meuUsuario == listaMensagens[i].userName){
+        if(listaMensagens[i].userName == meuUsuario){
             span.classList.add("msg-enviada");
         }else{
             span.classList.add("msg-recebida");
         }
-
-        nomeUsuario.appendChild(textoUsuario);
-        spanTexto.appendChild(textoMsg);
-        span.appendChild(nomeUsuario);
-        span.appendChild(spanTexto);
-        mensagens.appendChild(span);
+        campoMsg.appendChild(span);
     }
 
-    paragrafo.appendChild(textoNome);
+
+
+}
+
+
+
+
+
+
+let grupos = document.querySelector(".grupos");
+function mostrarGrupo(groupName,groupID) {
+    let grupo = document.createElement("div");
+    let imagem = document.createElement("img");
+    let spanGrupo = document.createElement("span");
+    let texto = document.createTextNode(groupName);
+    grupo.classList.add("grupo");
+    spanGrupo.classList.add("usuario");
+    imagem.setAttribute("src","icone.png");
+    spanGrupo.appendChild(texto);
+    grupo.appendChild(imagem);
+    grupo.appendChild(spanGrupo);
+    grupo.addEventListener("click", function(){
+        pegarMensagens(groupName,groupID);
+    });
+    grupos.appendChild(grupo);
+
+}
+
+
+let coluna2 = document.querySelector(".coluna2");
+function mostraMensagens(){
+    let mensagemUsuario = document.createElement("div");
+    let cabecalho = document.createElement("div");
+    let img = document.createElement("img");
+    let mensagens = document.createElement("div");
+
+    mensagemUsuario.classList.add("mensagem-usuario");
+    cabecalho.classList.add("cabecalho-mensagem");
+    mensagens.classList.add("mensagens");
+
+    img.setAttribute("src", "icone.png");
+
     cabecalho.appendChild(img);
-    cabecalho.appendChild(paragrafo);
     mensagemUsuario.appendChild(cabecalho);
     mensagemUsuario.appendChild(mensagens);
-
-
     coluna2.appendChild(mensagemUsuario);
 }
+mostraMensagens();
 
 
-
-
-
-
-function aparecerMensagensContato() {
-    let meusContatos = document.querySelectorAll(".grupo");
-    console.log(meusContatos);
-    let mensagemUsuario = document.querySelectorAll(".mensagem-usuario");
-    console.log(mensagemUsuario);
-
-    for(let  i = 0; i < meusContatos.length; i++){
-
-        meusContatos[i].addEventListener("click",function () {
-            for (let j = 0; j < mensagemUsuario.length; j++){
-                mensagemUsuario[j].classList.remove("active");
-            }
-            mensagemUsuario[i].classList.add("active");
-        });
-
-    }
-}
 
 pegarGrupo();
 
