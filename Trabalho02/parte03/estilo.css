@@ -26,7 +26,7 @@
     color: white;
 }
 
-.cabecalho-principal button{
+.cabecalho-principal .btn-login{
     float: right;
     font-size: 14px;
     padding: 10px 20px;
@@ -52,7 +52,13 @@
     position: absolute;
     margin: 10vh 15vw;
     background-color: #dddddd;
+    display: none;
 }
+
+.container.active{
+    display: block;
+}
+
 
 .coluna1{
     width: calc(30% - 2px);
@@ -70,12 +76,13 @@
     border: 1px solid rgba(0,0,0,0.1);
 }
 
-.cabecalho{
+.cabecalho, .cabecalho-mensagem{
     width: 100%;
     height: 70px;
     background-color: #c9c9c9;
 }
-.cabecalho img{
+
+.cabecalho img, .cabecalho-mensagem img{
     width: 30px;
     height: 30px;
     float: left;
@@ -83,16 +90,44 @@
 }
 
 
-.cabecalho p{
+.cabecalho p, .cabecalho-mensagem p{
     font-size: 24px;
     text-align: center;
     font-family: Georgia;
     padding: 23px 0px;
 }
 
+
+.coluna1 .cadastrar-grupo{
+    height: 148px;
+    width: calc(100% - 2px);
+    background-color: #a8d0d9;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.coluna1 .cadastrar-grupo .input-cadastrar-groupName,.coluna1 .cadastrar-grupo .input-cadastrar-groupID{
+    width: calc(100% - 12px);
+    height: 40px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.coluna1 .cadastrar-grupo .botao-cadastrar-grupo{
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.coluna1 .cadastrar-grupo .botao-cadastrar-grupo:hover{
+    background-color: #4caf50;
+    cursor: pointer;
+}
+
+
 .coluna1 .grupos{
     width: calc(100% - 4px);
-    height: calc(100% - 74px);
+    height: calc(100% - 224px);
     background-color: #397888;
     padding: 2px;
     overflow-y: auto;
@@ -113,7 +148,7 @@
     background-color: #d9bdbe;
 }
 
-.grupo .grupo-nome{
+.grupo .usuario{
     padding: 15px 0px;
     text-align: center;
     display: block;
@@ -126,44 +161,55 @@
     float: left;
 }
 
-.coluna2 .grupo-mensagens{
-    width: 100%;
+.coluna2 .mensagem-usuario{
+width: 100%;
     height:100%;
     display: none;
 }
-
-.coluna2 .grupo-mensagens.active{
+.coluna2 .mensagem-usuario.active{
     display: block;
 }
 
-.grupo-mensagens .mensagens{
+
+.coluna2 .mensagem-usuario .mensagens{
     width: calc(100% - 10px);
-    height: calc(100% - 140px);
+    height: calc(100% - 130px);
     background-color: bisque;
     padding: 5px;
     overflow-y: auto;
 }
 
-.grupo-mensagens .enviar-mensagem{
-    width: 100%;
-    height: 60px;
+.cabecalho.active, .coluna2 .mensagem-usuario .mensagens.active{
     display: block;
+}
+
+.coluna2 .mensagem-usuario .barraMsg{
+    height: 50px;
+    width: 100%;
     background-color: white;
 }
 
-.grupo-mensagens .enviar-mensagem .campo-mensagem{
-    width: calc(100% - 125px);
-    padding: 10px;
-}
-.grupo-mensagens .enviar-mensagem .botao-enviar{
-    padding: 10px;
-    background-color: #4caf50;
+.coluna2 .mensagem-usuario .barraMsg .campoTextoMsg{
+    width: calc(100% - 110px);
+    height: 50px;
     border: none;
+    padding: 0 0 0 10px;
 }
 
-.cabecalho.active, .grupo-mensagens .mensagens.active{
-    display: block;
+.coluna2 .mensagem-usuario .barraMsg .botaoEnviarMsg{
+    width: 100px;
+    font-size: 14px;
+    padding: 18px;
+    text-align: center;
+    border: none;
+    background-color: #c9c9c9;
 }
+
+.coluna2 .mensagem-usuario .barraMsg .botaoEnviarMsg:hover{
+    background-color: #4caf50;
+    cursor: pointer;
+}
+
 
 .mensagens .msg{
     width:50%;
@@ -174,16 +220,22 @@
     background-color: white;
 }
 
-.msg .username{
+.msg .nome-usuario{
+    font-size: 12px;
+    text-align:left;
+    color: #923c1a;
     display: block;
-    font-size: 10px;
-    padding: 0px 0px 10px 0px;
+   margin-bottom: 5px;
 }
 
 .msg .texto{
-    font-size: 16px;
+    font-size: 14px;
+    text-align: justify;
     display: block;
+
+
 }
+
 
 .mensagens .msg-recebida{
     float: left;
@@ -192,5 +244,64 @@
 
 .mensagens .msg-enviada{
     float: right;
-    background-color: lightgreen;
+    background-color: lawngreen;
+}
+
+
+
+
+
+.modal{
+    position: fixed;
+    width: 70%;
+    height: 90%;
+    top: 5%;
+    left: 15%;
+    background-color: rgb(205, 225, 236);
+    display: none;
+}
+.modal.active{
+    display: block;
+}
+
+.modal .modal-form{
+    background-color: #b7e6ee;
+    border: 2px solid rgba(0,0,0,0.1);
+    margin: 20% auto auto auto;
+    text-align: center;
+    padding: 20px 10px;
+    max-width: 250px;
+    display: none;
+}
+
+.modal .modal-form.active{
+    display: block;
+}
+
+
+.modal .modal-form .input-login{
+    width: calc(100% - 20px);
+    height: 35px;
+    border: 2px solid rgba(0,0,0,0.2);
+    text-align: left;
+    background: white;
+    padding-left: 5px;
+    transition: 500ms;
+    margin:5px;
+}
+
+.modal .modal-form .button-entrar {
+    width: 100px;
+    padding: 14px 10px;
+    font-size: 14px;
+    background-color: #DDDDDD;
+    transition: 500ms;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin:5px;
+}
+
+.modal .modal-form .button-entrar:hover {
+    cursor: pointer;
+    background-color: #BBBBBB;
 }

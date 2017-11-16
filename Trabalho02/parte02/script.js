@@ -78,14 +78,7 @@ function activeMensagem(groupName, listaMensagens, meuUsuario) {
         }
         campoMsg.appendChild(span);
     }
-
-
-
 }
-
-
-
-
 
 
 let grupos = document.querySelector(".grupos");
@@ -104,7 +97,6 @@ function mostrarGrupo(groupName,groupID) {
         pegarMensagens(groupName,groupID);
     });
     grupos.appendChild(grupo);
-
 }
 
 
