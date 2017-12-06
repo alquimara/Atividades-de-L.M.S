@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .cabecalho{
+            background-color: #80cbc4;
+            width: 100%;
+            height: 70px;
+        }
+        .titulo{
+            font-size: 30px;
+            margin-left: 30px;
+            padding: 20px 0px;
+            display: inline-block;
+        }
+        .dropdown{
+            display: inline-block;
+            float: right;
+            margin-right: 100px;
+            margin: 10px 0px;
+        }
+
+        #todaCesta{
+            overflow-y: auto;
+        }
+
+        #cestaProdutos{
+            list-style: none;
+        }
+
+        .produtoCesta{
+            display: block;
+            border: 1px solid white;
+        }
+        .produtoCestaText{
+            display: block;
+        }
+
+        #menu1{
+            background-color: #53bf57;
+            width: 100px;
+            height: 50px;
+            margin: 0px 25px;
+        }
+
+        #menu2{
+            background-color: #00acc1;
+            width: 70px;
+            height: 50px;
+            margin: 0px 120px 0px 25px;
+        }
+
+        #menu3{
+            background-color: #ad6bab;
+            width: 80px;
+            height: 50px;
+            margin: 0px 25px;
+        }
+
+        #menu4{
+            width: 80px;
+            height: 50px;
+            margin: 0px 120px 0px 25px;
+            background-color: #ad1457;
+        }
+
+        .desativaMenu{
+            display: none;
+        }
+
+        .activeMenu{
+            display: block;
+        }
+
+        .dropdown{
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            background-color: #a6a5c8;
+            width: 200px;
+            height: 300px;
+        }
+
+        .cabecalho{
+            width: 100%;
+            height: 80px;
+            background-color: lightgreen;
+        }
+
+
+        .adicionar{
+            background-color: #c685a3;
+            width: 100px;
+            height:40px;
+            border: none;
+            margin : 50px;
+            margin-top: 10px;
+        }
+        .adicionarActive{
+            display: inline-block;
+        }
+        .adicionarDesativo{
+            display: none;
+        }
+        .produto{
+            margin-left: 40px;
+        }
+
+        .produtosDisponiveis{
+            display: inline-block;
+            padding: 40px 0px 0px 0px;
+
+        }
+
+
+        .produtosDisponiveis .produto{
+            width: 200px;
+            height: 170px;
+            background-color:  rgba(80, 189, 210, 0.4);
+            padding: 8px;
+            position: relative;
+        }
+
+        .produto img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay{
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(80, 189, 210, 0.8);
+
+        }
+
+        .produto:hover .overlay{
+            opacity: 1;
+        }
+
+        .text {
+            color: black;
+            font-size: 20px;
+            margin-top: 25%;
+            text-align: center;
+        }
+        .usuario{
+            display: inline-block;
+        }
+        #textoUsuario{
+            font-size: 30px;
+            padding: 20px 0px;
+            text-align: center;
+            margin-left: 300px;
+
+        }
+        .add{
+            background-color: #9d94ad;
+            width: 40px;
+            height: 100px;
+            position: absolute;
+            margin-top: -50px;
+        }
+        .ok{
+            width: 50px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="cabecalho">
+    <div class="titulo">
+        Varejão Lojas
+    </div>
+    <div class="usuario">
+        <div id="textoUsuario"></div>
+    </div>
+    <!-- BOTÃO SAIR-->
+    <div class="dropdown">
+        <button class="btn btn-default desativaMenu" type="button" id="menu4" >Sair</button>
+    </div>
+    <!-- BOTÃO ENTRAR-->
+
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle activeMenu" type="button" id="menu2" data-toggle="dropdown">Entrar
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu" id="menu04">
+            <li> <div id="group4" class="form-group has-error2">
+                <label id="label4" class="control-label" for="input-nome2">Usuário:</label>
+                <input type="text" class="form-control" id="input-nome2" placeholder="Nome"></div>
+            </li>
+            <li><div id="group5" class="form-group has-error">
+                <label id="label5" class="control-label" for="input-senha2">Senha:</label>
+                <input type="password" class="form-control" id="input-senha2" placeholder="Senha">
+            </div></li> <button id="submit-form2" class="btn btn-default disabled">Enviar</button>
+        </ul>
+    </div>
+    <!-- BOTÃO CADASTRAR-->
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle activeMenu" type="button" id="menu1" data-toggle="dropdown">Cadastrar
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li> <div id="group1" class="form-group has-error">
+                <label id="label1" class="control-label" for="input-nome">Usuário:</label>
+                <input type="text" class="form-control" id="input-nome" placeholder="Nome"></div>
+            </li>
+            <li><div id="group2" class="form-group has-error">
+                <label id="label2" class="control-label" for="input-senha">Senha:</label>
+                <input type="password" class="form-control" id="input-senha" placeholder="Senha">
+            </div></li>
+            <button id="submit-form" class="btn btn-default disabled">Enviar</button>
+        </ul>
+    </div>
+
+    <!-- BOTÃO CESTA-->
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle desativaMenu" type="button" id="menu3" data-toggle="dropdown">Cesta
+            <span class="caret"></span></button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="menu1" id="todaCesta">
+
+            <ul id="cestaProdutos"></ul>
+
+            <ul><li role="presentation" class="divider"></li></ul>
+
+            <button id="submit-form4" class="btn btn-default">Finalizar</button>
+        </div>
+
+    </div>
+</nav>
+<!-- PRODUTOS-->
+    <div class="produtos">
+    </div>
+
+
+<script>
+    let error1 = true;
+    let error2 = true;
+    let error3 = true;
+    let error4 = true;
+    let ident = 1;
+
+    function atualizarBotaoSumit() {
+        if (error1 == true || error2 == true) {
+            $("#submit-form").addClass("disabled");
+        } else {
+            $("#submit-form").removeClass("disabled");
+        }
+
+    }
+
+    $("#input-nome").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label1").show();
+            $("#group1").addClass("has-error");
+            error1 = true;
+        } else {
+            // Válido
+            $("#group1").removeClass("has-error");
+            error1 = false;
+        }
+        atualizarBotaoSumit();
+
+    });
+
+    $("#input-senha").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label2").show();
+            $("#group2").addClass("has-error");
+            error2 = true;
+        } else {
+            // Válido
+            $("#group2").removeClass("has-error");
+            error2 = false;
+        }
+
+        atualizarBotaoSumit();
+
+
+    });
+
+    function atualizarBotao() {
+        if (error3 == true || error4 == true) {
+            $("#submit-form2").addClass("disabled");
+        } else {
+            $("#submit-form2").removeClass("disabled");
+        }
+    }
+
+    $("#input-nome2").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label4").show();
+            $("#group4").addClass("has-error");
+            error3 = true;
+        } else {
+            // Válido
+            $("#group4").removeClass("has-error");
+            error3 = false;
+        }
+        atualizarBotao();
+    });
+
+    $("#input-senha2").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label5").show();
+            $("#group5").addClass("has-error");
+            error4 = true;
+        } else {
+            // Válido
+            $("#group5").removeClass("has-error");
+            error4 = false;
+        }
+        atualizarBotao();
+
+    });
+
+    function enviarServidor(usuario1, senha1) {
+        $.ajax({
+            type: "POST",
+            url: "http://rest.learncode.academy/api/alquimara/usuariosCadastrados",
+            data:{usuario: usuario1, senha: senha1},
+            success: function (data) {
+                alert("Usuário cadastrado com Sucesso");
+            }
+        });
+    }
+
+    function usuarioJaExiste(usuario, senha) {
+        $.ajax({
+            type: "GET",
+            url: "http://rest.learncode.academy/api/alquimara/usuariosCadastrados",
+            success: function (data) {
+                let existe = false;
+                for(let i = 0; i< data.length; i++){
+                    if(data[i].usuario == usuario){
+                        existe = true;
+                    }
+                }
+                if(existe == false){
+                    enviarServidor(usuario,senha);
+                } else {
+                    alert("Usuário já está cadastrado");
+                }
+
+            }
+        });
+    }
+
+    function cadastro() {
+        $("#submit-form").click(function () {
+            event.preventDefault();
+            let usuario1= $("#input-nome").val();
+            let senha1 = $("#input-senha").val();
+
+
+            usuarioJaExiste(usuario1,senha1);
+        });
+    }
+    cadastro();
+
+    function logar(usuario, senha) {
+        $.ajax({
+            type: "GET",
+            url:"http://rest.learncode.academy/api/alquimara/usuariosCadastrados",
+            success: function (data) {
+                let logou = false;
+                for (let i = 0; i < data.length; i++){
+                    if(data[i].usuario == usuario && data[i].senha == senha){
+
+                        localStorage.setItem("usuario", usuario);
+                        localStorage.setItem("senha", senha);
+
+                        $("#menu1").removeClass("activeMenu");
+                        $("#menu1").addClass("desativaMenu");
+
+                        $("#menu2").removeClass("activeMenu");
+                        $("#menu2").addClass("desativaMenu");
+
+                        $("#menu3").removeClass("desativaMenu");
+                        $("#menu3").addClass("activeMenu");
+
+                        $("#menu4").removeClass("desativaMenu");
+                        $("#menu4").addClass("activeMenu");
+
+                        let botoes = $(".adicionar");
+                        for (let i = 0; i < botoes.length; i++){
+                            $(botoes[i]).removeClass("adicionarDesativo");
+                            $(botoes[i]).addClass("adicionarActive");
+                        }
+
+                        $("#textoUsuario").textContent = usuario;
+                        logou = true;
+                    }
+                }
+                if(logou == false){
+                    alert("Usuário e/ou Senha Errados");
+                }
+            }
+        });
+    }
+
+    function login() {
+        $("#submit-form2").click(function () {
+        event.preventDefault();
+        let usuario2= $("#input-nome2").val();
+        let senha2 = $("#input-senha2").val();
+        logar(usuario2,senha2);
+        });
+    }
+    login();
+
+    function sair() {
+        $("#menu4").click(function () {
+
+            localStorage.removeItem("usuario");
+            localStorage.removeItem("senha");
+
+            event.preventDefault();
+            $("#menu1").removeClass("desativaMenu");
+            $("#menu1").addClass("activeMenu");
+
+            $("#menu2").removeClass("desativaMenu");
+            $("#menu2").addClass("activeMenu");
+
+            $("#menu3").removeClass("activeMenu");
+            $("#menu3").addClass("desativaMenu");
+
+            $("#menu4").removeClass("activeMenu");
+            $("#menu4").addClass("desativaMenu");
+
+            let botoes = $(".adicionar");
+            for (let i = 0; i < botoes.length; i++){
+                $(botoes[i]).removeClass("adicionarActive");
+                $(botoes[i]).addClass("adicionarDesativo");
+            }
+            $("#textoUsuario").textContent = "";
+            limparCesta();
+        });
+    }
+    sair();
+
+    function checarLogin() {
+        let user = localStorage.getItem("usuario");
+
+        if(user != null){
+            logar(localStorage.getItem("usuario"), localStorage.getItem("senha"));
+            checarCesta();
+        } else {
+            sair();
+        }
+    }
+    checarLogin();
+
+    function checarCesta() {
+        let cestaQtd = localStorage.getItem("cestaQtd");
+        if(cestaQtd > 0){
+            $("#cestaProdutos").empty();
+            for(let i = 1; i <= cestaQtd; i++){
+                let nome = (localStorage.getItem("cestaProdutoNome"+i));
+                let preco = (localStorage.getItem("cestaProdutoPreco"+i));
+                let qtd = (localStorage.getItem("cestaProdutoQtd"+i));
+                criarProdutoCesta(nome,preco,qtd);
+            }
+        }
+    }
+
+    function limparCesta() {
+        let cestaQtd = localStorage.getItem("cestaQtd");
+        if(cestaQtd > 0){
+            for(let i = 1; i <= cestaQtd; i++){
+                (localStorage.removeItem("cestaProdutoNome"+i));
+                (localStorage.removeItem("cestaProdutoPreco"+i));
+                (localStorage.removeItem("cestaProdutoQtd"+i));
+            }
+            localStorage.removeItem("cestaQtd");
+            ident = 1;
+            $("#cestaProdutos").empty();
+        }
+
+    }
+
+    function criarProdutoCesta(nome,preco, qtd) {
+
+/*        <li role="presentation">
+            <div role="menuitem" class="produtoCesta" style="display: block;padding: 2px">
+                <span class="produtoCestaText" style="display: block;">ads</span>
+                <span class="produtoCestaText" style="display: block">asd</span>
+                <span class="produtoCestaText" style="display: block">asd</span>
+            </div>
+        </li>
+*/
+        let li = $("<li></li>").attr("role","presentation");
+        let produtoCesta = $("<div></div>").addClass("produtoCesta");
+        let produtoCestaNome = $("<span></span>").addClass("produtoCestaText");
+        let produtoCestaPreco = $("<span></span>").addClass("produtoCestaText");
+        let produtoCestaQtd = $("<span></span>").addClass("produtoCestaText");
+        $(produtoCestaNome).text(nome);
+        $(produtoCestaPreco).text("Preço: R$ " + preco);
+        $(produtoCestaQtd).text("Qtd: " + qtd);
+        $(produtoCesta).append(produtoCestaNome);
+        $(produtoCesta).append(produtoCestaPreco);
+        $(produtoCesta).append(produtoCestaQtd);
+        $(li).append(produtoCesta);
+        $("#cestaProdutos").append(li);
+  }
+
+
+    function criarProduto(nome1, preco1, imagem1, id1, id2) {
+        let produtosDisponiveis = $("<div></div>").addClass("produtosDisponiveis");
+        let produto = $("<div></div>").addClass("produto");
+        let imagem = $("<img>").attr("src",imagem1);
+        let overlay = $("<div></div>").addClass("overlay");
+        let text = $("<div></div>").addClass("text");
+        let textNome = $("<div></div>").text(nome1);
+        let textPreco = $("<div></div>").text("R$ " + preco1);
+        let dropdown = $("<div></div>").addClass("dropdown");
+        let dropdownToggle = $("<button></button>").addClass("dropdown-toggle");
+        $(dropdownToggle).addClass("adicionar");
+        $(dropdownToggle).addClass("adicionarDesativo");
+        $(dropdownToggle).attr("type","button");
+        $(dropdownToggle).attr("data-toggle","dropdown");
+        $(dropdownToggle).text("Adicionar a Cesta");
+        let caret = $("<span></span>").addClass("caret");
+        let dropdownMenu = $("<ul></ul>").addClass("dropdown-menu");
+        dropdownMenu.addClass("add");
+        let li = $("<li></li>");
+        let formGroup = $("<div></div>").addClass("form-group");
+        $(formGroup).attr("id", id1);
+        $(formGroup).addClass("has-error");
+        let controlLbael = $("<label></label>").addClass("control-label");
+        $(controlLbael).text("Quantidade:");
+        $(controlLbael).attr("id", id2);
+        $(controlLbael).attr("for", "input-nome");
+        let formControl = $("<input>").addClass("form-control");
+        $(formControl).attr("type","number");
+        $(formControl).attr("placeholder","Quantidade");
+        let ok = $("<button></button>").addClass("ok");
+        $(ok).text("OK");
+
+        $(ok).click(function () {
+            if($(formControl).val() != ""){
+                criarProdutoCesta(nome1, preco1, $(formControl).val());
+                if(localStorage.getItem("cestaQtd") > 0 && ident == 1){
+                    ident = localStorage.getItem("cestaQtd");
+                    ident++;
+                }
+                localStorage.setItem("cestaQtd",ident);
+                localStorage.setItem("cestaProdutoNome"+ident,nome1);
+                localStorage.setItem("cestaProdutoPreco"+ident,preco1);
+                localStorage.setItem("cestaProdutoQtd"+ident,$(formControl).val());
+                ident++;
+                $(formControl).val("");
+            }
+        });
+
+        $(formGroup).append(controlLbael);
+        $(formGroup).append(formControl);
+        $(formGroup).append(ok);
+        $(li).append(formGroup);
+        $(dropdownMenu).append(li);
+        $(dropdownToggle).append(caret);
+        $(dropdown).append(dropdownToggle);
+        $(dropdown).append(dropdownMenu);
+        $(text).append(textNome);
+        $(text).append(textPreco);
+        $(overlay).append(text);
+        $(overlay).append(dropdown);
+        $(produto).append(imagem);
+        $(produto).append(overlay);
+        $(produtosDisponiveis).append(produto);
+        $(".produtos").append(produtosDisponiveis);
+
+
+    }
+
+    function pegarProdutos() {
+        $.ajax({
+            type: "GET",
+            url:"http://rest.learncode.academy/api/alquimara/produtos",
+            success: function (data) {
+                $(".produtos").empty();
+                for(let i = 0; i<data.length; i++){
+                    let id1 = "group" + i;
+                    let id2 = "label" + i;
+                    criarProduto(data[i].nome, data[i].preco,data[i].imagem,id1, id2);
+                }
+                checarLogin();
+            }
+        });
+    }
+    pegarProdutos();
+
+    function cadastrarProduto(nome1, preco1, imagem1) {
+     $.ajax({
+         type: "POST",
+         url:"http://rest.learncode.academy/api/alquimara/produtos",
+         data:{nome: nome1,preco:preco1,imagem:imagem1},
+         success: function (data) {
+            alert("produto Cadastrado");
+            pegarProdutos();
+         }
+
+     });
+    }
+    //cadastrarProduto("Notebook Samsung", 1299, "img/imagem2.jpg" );
+
+    function finaliza() {
+        $("#submit-form4").click(function () {
+            window.location.href = "index-compras.html";
+        })
+    }
+    finaliza();
+
+
+
+</script>
+
+
+</body>
+</html>

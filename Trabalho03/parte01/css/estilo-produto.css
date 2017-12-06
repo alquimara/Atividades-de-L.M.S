@@ -1,0 +1,105 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.contaneir{
+    width: 80%;
+    min-height: 100vh;
+    background-color: rgba(203, 203, 203, 0.97);
+    margin-left: 10%;
+
+}
+.cabecalho{
+    width: 100%;
+    height: 80px;
+    background-color: lightgreen;
+}
+
+.meuTitulo{
+    text-align: left;
+    display: inline-block;
+    font-size: 30px;
+    padding: 20px 30px;
+
+}
+.adicionar{
+    background-color: #c685a3;
+    display: inline-block;
+    width: 100px;
+    height:40px;
+    border: none;
+    margin : 50px;
+    margin-top: 20px;
+
+
+}
+.produto{
+    margin-left: 40px;
+}
+
+.pesquisar{
+   display: inline-block;
+    padding: 10px 20%;
+    background-color: white;
+    margin-top: 10px;
+    font-size: 14px;
+
+}
+.entrar{
+    background-color: #09709a;
+    display: inline-block;
+    float: right;
+    height: 50px;
+    width: 80px;
+    margin: 15px;
+    border: none;
+}
+
+
+
+.produtosDisponiveis{
+    display: inline-block;
+    padding: 40px 0px 0px 0px;
+
+
+}
+
+
+.produtosDisponiveis .produto{
+    width: 200px;
+    height: 170px;
+    background-color:  rgba(80, 189, 210, 0.4);
+    padding: 8px;
+    position: relative;
+}
+
+.produto img{
+    width: 100%;
+    height: 100%;
+}
+
+.overlay{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(80, 189, 210, 0.8);
+
+}
+
+.produto:hover .overlay{
+   opacity: 1;
+}
+
+.text {
+    color: black;
+    font-size: 20px;
+    margin-top: 25%;
+    text-align: center;
+}

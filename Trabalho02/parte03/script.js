@@ -128,6 +128,7 @@ function mostrarGrupo(groupName,groupID) {
     grupos.appendChild(grupo);
 }
 
+
 function mostraMensagens(){
     let coluna2 = document.querySelector(".coluna2");
     let mensagemUsuario = document.createElement("div");

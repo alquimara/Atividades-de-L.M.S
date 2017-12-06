@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<form action="">
+    <div id="group1" class="form-group has-error">
+        <label id="label1" class="control-label" for="input-nome">Input with error</label>
+        <input type="text" class="form-control" id="input-nome" placeholder="Nome">
+    </div>
+    <div id="group2" class="form-group has-error">
+        <label id="label2" class="control-label" for="input-sobrenome">Input with error</label>
+        <input type="text" class="form-control" id="input-sobrenome" placeholder="Sobrenome">
+    </div>
+    <button id="submit-form" class="btn btn-default disabled">Submit</button>
+</form>
+
+<script>
+    let error1 = true;
+    let error2 = true;
+    function atualizarBotaoSumit() {
+        if (error1 == true || error2 == true) {
+            $("#submit-form").addClass("disabled");
+        } else {
+            $("#submit-form").removeClass("disabled");
+        }
+    }
+    $("#input-nome").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label1").show();
+            $("#group1").addClass("has-error");
+            error1 = true;
+        } else {
+            // Válido
+            $("#label1").hide();
+            $("#group1").removeClass("has-error");
+            error1 = false;
+        }
+        atualizarBotaoSumit();
+    })
+    $("#input-sobrenome").change(function () {
+        if (this.value == "") {
+            // Inválido
+            $("#label2").show();
+            $("#group2").addClass("has-error");
+            error2 = true;
+        } else {
+            // Válido
+            $("#label2").hide();
+            $("#group2").removeClass("has-error");
+            error2 = false;
+        }
+        atualizarBotaoSumit();
+    });
+</script>
+</body>
+
+</html>
